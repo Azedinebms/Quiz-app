@@ -1,10 +1,28 @@
 import React, { useRef, useEffect, useState, Fragment } from 'react'
+import { NavLink } from 'react-router-dom';
 
 const Landing = () => {
 
   const [btn, setBtn] = useState(false);
 
   const refWolverine = useRef(null);
+
+  const setLeftImg =() =>{
+    refWolverine.current.classList.add("leftImg");
+  }
+
+  const setRightImg =() =>{
+    refWolverine.current.classList.add("rightImg");
+  }
+
+  const removeLtImg =() =>{
+    if(refWolverine.current.classList.contains("leftImg")){
+      refWolverine.current.classList.remove("leftImg");
+    } else if (refWolverine.current.classList.contains("rightImg")){
+      refWolverine.current.classList.remove("rightImg");
+    }
+    
+  }
 
 
   useEffect(() => {
@@ -20,11 +38,11 @@ const Landing = () => {
 
   const displayBtn = btn && (
     <>
-      <div className='leftBox'>
-        <button className='btn-welcome'>Inscription</button>
+      <div onMouseOver={setLeftImg} onMouseOut={removeLtImg} className='leftBox'>
+        <NavLink to="/signup" className='btn-welcome'>Inscription</NavLink>
       </div>
-      <div className='rightBox'>
-        <button className='btn-welcome'>Connexion</button>
+      <div onMouseOver={setRightImg} onMouseOut={removeLtImg} className='rightBox'>
+        <NavLink to="/login" className='btn-welcome'>Connexion</NavLink>
       </div>
     </>)
   return (

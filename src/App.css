@@ -150,6 +150,7 @@ main {
   text-align: center;
   text-decoration: none;
   margin-top: 150px;
+  cursor: pointer;
 }
 
 .btn-welcome:hover {
