@@ -9,12 +9,13 @@ import Signup from '../Signup';
 import ErrorPage from '../ErrorPage';
 import ForgetPassword from '../ForgetPassword';
 import '../../App.css';
+import { IconContext } from 'react-icons';
 
 function App() {
   return (
     <div>
 
-      
+<IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
       <Header />
 
       <BrowserRouter>
@@ -33,7 +34,7 @@ function App() {
       
       <Footer />
       
-      
+      </IconContext.Provider>
 
 
         
